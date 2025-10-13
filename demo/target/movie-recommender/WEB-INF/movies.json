@@ -1,0 +1,114 @@
+[
+  {
+    "titulo": "A Origem",
+    "ano": 2010,
+    "diretor": "Christopher Nolan",
+    "genero": "Ficção Científica, Ação",
+    "sinopse": "Dom Cobb é um ladrão que rouba informações do inconsciente das pessoas durante o sonho. Impedido de retornar para sua família, ele recebe uma última missão: plantar uma ideia na mente de um alvo.",
+    "posterUrl": "https://image.tmdb.org/t/p/w500/9e32CPS24vI2SC1s4sADCn3eC3Y.jpg"
+  },
+  {
+    "titulo": "O Poderoso Chefão",
+    "ano": 1972,
+    "diretor": "Francis Ford Coppola",
+    "genero": "Drama, Crime",
+    "sinopse": "Uma família mafiosa ítalo-americana luta para estabelecer sua supremacia nos Estados Unidos após a Segunda Guerra Mundial. Uma tentativa de assassinato deixa o chefão Vito Corleone incapacitado e força seu filho Michael a assumir os negócios da família.",
+    "posterUrl": "https://image.tmdb.org/t/p/w500/oJagOzBu9hIt9tAofn_khIuPDB.jpg"
+  },
+  {
+    "titulo": "Interestelar",
+    "ano": 2014,
+    "diretor": "Christopher Nolan",
+    "genero": "Ficção Científica, Aventura",
+    "sinopse": "As reservas naturais da Terra estão chegando ao fim e um grupo de astronautas recebe a missão de verificar possíveis planetas para receber a população mundial, possibilitando a continuação da espécie. Cooper é chamado para liderar o grupo e aceita a missão sabendo que pode nunca mais ver os filhos.",
+    "posterUrl": "https://image.tmdb.org/t/p/w500/nCbkIeFw8iIM78k0sC3a3Sqs2Jw.jpg"
+  },
+  {
+    "titulo": "Cidade de Deus",
+    "ano": 2002,
+    "diretor": "Fernando Meirelles, Kátia Lund",
+    "genero": "Drama, Crime",
+    "sinopse": "Buscapé é um jovem pobre, negro e sensível, que cresce em um universo de muita violência. Ele vive na Cidade de Deus, favela carioca conhecida por ser um dos locais mais violentos da cidade. Amedrontado com a possibilidade de se tornar um bandido, Buscapé acaba sendo salvo de seu destino por causa de seu talento como fotógrafo.",
+    "posterUrl": "https://image.tmdb.org/t/p/w500/8B2WrTtglOrp5H8aT63jIolwdsC.jpg"
+  },
+  {
+    "titulo": "Parasita",
+    "ano": 2019,
+    "diretor": "Bong Joon-ho",
+    "genero": "Suspense, Comédia, Drama",
+    "sinopse": "Toda a família de Ki-taek está desempregada, vivendo num porão sujo e apertado. Uma obra do acaso faz com que o filho adolescente da família comece a dar aulas de inglês à garota de uma família rica. Fascinados com a vida luxuosa destas pessoas, pai, mãe, filho e filha bolam um plano para se infiltrar também na família burguesa.",
+    "posterUrl": "https://image.tmdb.org/t/p/w500/igw9uvfHyF5iFGHPaMGoV2H210N.jpg"
+  },
+  {
+    "titulo": "A Viagem de Chihiro",
+    "ano": 2001,
+    "diretor": "Hayao Miyazaki",
+    "genero": "Animação, Família, Fantasia",
+    "sinopse": "Chihiro e seus pais estão se mudando de cidade. A caminho da casa nova, o pai decide pegar um atalho. Eles se deparam com uma cidade aparentemente abandonada. Curiosos, os pais de Chihiro decidem explorar o local, o que os leva a um mundo mágico e perigoso.",
+    "posterUrl": "https://image.tmdb.org/t/p/w500/dbTt2U2d8i2aT2x6a2yqJqMns7r.jpg"
+  },
+  {
+    "titulo": "Pulp Fiction: Tempo de Violência",
+    "ano": 1994,
+    "diretor": "Quentin Tarantino",
+    "genero": "Suspense, Crime",
+    "sinopse": "Assassino que trabalha para a máfia se apaixona pela esposa de seu chefe. Lutador de boxe não cumpre acordo com o mafioso. Casal de assaltantes tenta roubar um restaurante. As três histórias se cruzam de forma não linear.",
+    "posterUrl": "https://image.tmdb.org/t/p/w500/eQ4VoCcrO2zgG6S8j3wHsc4e2Sj.jpg"
+  },
+  {
+    "titulo": "Forrest Gump: O Contador de Histórias",
+    "ano": 1994,
+    "diretor": "Robert Zemeckis",
+    "genero": "Comédia, Drama, Romance",
+    "sinopse": "Mesmo com o QI abaixo da média, Forrest Gump participa de momentos cruciais da história dos Estados Unidos, como a Guerra do Vietnã e o caso Watergate. Mas o que realmente importa para ele é reencontrar Jenny, seu amor de infância.",
+    "posterUrl": "https://image.tmdb.org/t/p/w500/d74WibNclpGkOKk2VLob7h0M97S.jpg"
+  },
+  {
+    "titulo": "Matrix",
+    "ano": 1999,
+    "diretor": "Lana Wachowski, Lilly Wachowski",
+    "genero": "Ação, Ficção Científica",
+    "sinopse": "Um jovem programador é atormentado por estranhos pesadelos nos quais sempre está conectado por cabos a um imenso sistema de computadores do futuro. À medida que o sonho se repete, ele começa a desconfiar da realidade. Com a ajuda de um misterioso grupo, ele descobre que é vítima do Matrix, um sistema que manipula a mente das pessoas.",
+    "posterUrl": "https://image.tmdb.org/t/p/w500/lDqMDI3xpbB9UaDUARUIbYs2CSo.jpg"
+  },
+  {
+    "titulo": "O Senhor dos Anéis: A Sociedade do Anel",
+    "ano": 2001,
+    "diretor": "Peter Jackson",
+    "genero": "Aventura, Fantasia, Ação",
+    "sinopse": "Em uma terra fantástica e única, um hobbit recebe de presente de seu tio um anel mágico e maligno que precisa ser destruído antes que caia nas mãos do mal. Para isso, ele forma uma sociedade com outros hobbits, um elfo, um anão, dois humanos e um mago, e parte em uma jornada perigosa.",
+    "posterUrl": "https://image.tmdb.org/t/p/w500/u5clS3dC1vWp2b2i5ZUmwpi1a2c.jpg"
+  },
+  {
+    "titulo": "Clube da Luta",
+    "ano": 1999,
+    "diretor": "David Fincher",
+    "genero": "Drama",
+    "sinopse": "Um homem deprimido que sofre de insônia conhece um vendedor de sabonetes e juntos formam um clube de luta clandestino que se transforma em algo muito maior, evoluindo para um movimento anticapitalista radical.",
+    "posterUrl": "https://image.tmdb.org/t/p/w500/r3pPehX4ik8NdbPnsoCKDskhomJ.jpg"
+  },
+  {
+    "titulo": "O Fabuloso Destino de Amélie Poulain",
+    "ano": 2001,
+    "diretor": "Jean-Pierre Jeunet",
+    "genero": "Comédia, Romance",
+    "sinopse": "Amélie é uma garçonete parisiense com um senso de imaginação peculiar. Ela decide mudar a vida das pessoas ao seu redor e, no caminho, descobre o amor. Uma jornada visualmente deslumbrante e encantadora pela Paris dos sonhos.",
+    "posterUrl": "https://image.tmdb.org/t/p/w500/3oPF6Icl2e3StkF7y5bAsL5FAEW.jpg"
+  },
+  {
+    "titulo": "Gladiador",
+    "ano": 2000,
+    "diretor": "Ridley Scott",
+    "genero": "Ação, Drama, Aventura",
+    "sinopse": "Maximus é um general romano traído pelo filho do imperador, que ordena a execução de sua família e o condena à escravidão. Como gladiador, Maximus busca vingança contra o imperador corrupto e luta para restaurar a justiça em Roma.",
+    "posterUrl": "https://image.tmdb.org/t/p/w500/ty8TGRuvJLPUmAR1H1nRIsgwvim.jpg"
+  },
+  {
+    "titulo": "O Grande Hotel Budapeste",
+    "ano": 2014,
+    "diretor": "Wes Anderson",
+    "genero": "Comédia, Drama",
+    "sinopse": "Gustave H., o concierge de um famoso hotel europeu entre as guerras, e Zero Moustafa, o lobby boy que se torna seu amigo mais confiável, embarcam em uma aventura envolvendo o roubo e a recuperação de uma pintura renascentista inestimável e a luta por uma enorme fortuna de família.",
+    "posterUrl": "https://image.tmdb.org/t/p/w500/nX5ZLHhBMaZxR4f5gKXo1v6N3D7.jpg"
+  }
+]

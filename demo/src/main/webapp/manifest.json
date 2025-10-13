@@ -1,0 +1,22 @@
+{
+  "name": "Movie Recommender - Recomendador de Filmes",
+  "short_name": "MovieRecommendero",
+  "description": "Um aplicativo simples para receber sugestões aleatórias de filmes.",
+  "start_url": "/movie-recommender/",
+  "display": "standalone",
+  "background_color": "#14181c",
+  "theme_color": "#e50914",
+  "orientation": "portrait-primary",
+  "icons": [
+    {
+      "src": "icons/icon-192x192.png",
+      "sizes": "192x192",
+      "type": "image/png"
+    },
+    {
+      "src": "icons/icon-512x512.png",
+      "sizes": "512x512",
+      "type": "image/png"
+    }
+  ]
+}
