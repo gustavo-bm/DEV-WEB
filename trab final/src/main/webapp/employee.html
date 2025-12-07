@@ -1,0 +1,144 @@
+<!DOCTYPE html>
+<html lang="pt-BR">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Monitoramento - Funcionário</title>
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;600;700&display=swap" rel="stylesheet">
+    <link rel="stylesheet" href="css/style.css">
+    <script src="https://unpkg.com/vue@3/dist/vue.global.js"></script>
+    <style>
+        .dashboard-stats {
+            display: flex;
+            gap: 2rem;
+            margin-bottom: 2rem;
+            justify-content: center;
+        }
+
+        .stat-card {
+            background: rgba(0, 0, 0, 0.2);
+            padding: 1rem 2rem;
+            border-radius: 10px;
+            text-align: center;
+        }
+
+        .stat-number {
+            font-size: 2rem;
+            font-weight: bold;
+            display: block;
+        }
+
+        .btn-small {
+            padding: 0.5rem 1rem;
+            font-size: 0.8rem;
+            margin-top: 1rem;
+            background: rgba(255, 255, 255, 0.1);
+        }
+
+        .btn-small:hover {
+            background: rgba(239, 68, 68, 0.4);
+        }
+    </style>
+</head>
+
+<body>
+    <div id="app" class="container animate-fade-in">
+        <header style="display: flex; justify-content: space-between; align-items: center; margin-bottom: 2rem;">
+            <h1>Monitoramento de Mesas</h1>
+            <a href="index.html" class="btn btn-secondary" style="font-size: 0.9rem;">Sair</a>
+        </header>
+
+        <div class="dashboard-stats">
+            <div class="stat-card">
+                <span class="stat-number" style="color: #6ee7b7">{{ mesasLivres }}</span>
+                Livres
+            </div>
+            <div class="stat-card">
+                <span class="stat-number" style="color: #fca5a5">{{ mesasReservadas }}</span>
+                Reservadas
+            </div>
+        </div>
+
+        <div v-if="loading" style="text-align: center;">Carregando dados...</div>
+
+        <div class="tables-grid" v-else>
+            <div v-for="mesa in mesas" :key="mesa.id" class="table-card" :class="mesa.status.toLowerCase()">
+                <h3>Mesa {{ mesa.numero }}</h3>
+                <span class="status-badge">{{ mesa.status }}</span>
+
+                <div v-if="mesa.status === 'RESERVADA'">
+                    <button class="btn btn-small" @click="liberarMesa(mesa)">
+                        Liberar Mesa
+                    </button>
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <script>
+        const { createApp } = Vue;
+
+        createApp({
+            data() {
+                return {
+                    mesas: [],
+                    loading: true,
+                    polling: null
+                }
+            },
+            computed: {
+                mesasLivres() {
+                    return this.mesas.filter(m => m.status === 'LIVRE').length;
+                },
+                mesasReservadas() {
+                    return this.mesas.filter(m => m.status === 'RESERVADA').length;
+                }
+            },
+            methods: {
+                async carregarMesas() {
+                    try {
+                        const response = await fetch('api/mesas');
+                        const data = await response.json();
+                        this.mesas = data;
+                        this.loading = false;
+                    } catch (error) {
+                        console.error('Erro ao carregar mesas:', error);
+                    }
+                },
+                async liberarMesa(mesa) {
+                    if (!confirm(`Deseja liberar a Mesa ${mesa.numero}?`)) return;
+
+                    try {
+                        const response = await fetch('api/mesas', {
+                            method: 'POST',
+                            headers: { 'Content-Type': 'application/json' },
+                            body: JSON.stringify({
+                                id: mesa.id,
+                                status: 'LIVRE'
+                            })
+                        });
+                        const result = await response.json();
+                        if (result.success) {
+                            this.carregarMesas();
+                        } else {
+                            alert('Erro ao liberar mesa.');
+                        }
+                    } catch (error) {
+                        console.error('Erro:', error);
+                    }
+                }
+            },
+            mounted() {
+                this.carregarMesas();
+                // Polling mais frequente para o funcionário (2 segundos)
+                this.polling = setInterval(this.carregarMesas, 2000);
+            },
+            beforeUnmount() {
+                clearInterval(this.polling);
+            }
+        }).mount('#app');
+    </script>
+</body>
+
+</html>

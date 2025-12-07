@@ -1,0 +1,130 @@
+<!DOCTYPE html>
+<html lang="pt-BR">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Reservas - Cliente</title>
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;600;700&display=swap" rel="stylesheet">
+    <link rel="stylesheet" href="css/style.css">
+    <script src="https://unpkg.com/vue@3/dist/vue.global.js"></script>
+</head>
+
+<body>
+    <div id="app" class="container animate-fade-in">
+        <header style="display: flex; justify-content: space-between; align-items: center; margin-bottom: 2rem;">
+            <h1>Reservar Mesa</h1>
+            <a href="index.html" class="btn btn-secondary" style="font-size: 0.9rem;">Voltar</a>
+        </header>
+
+        <div v-if="loading" style="text-align: center;">Carregando mesas...</div>
+
+        <div class="tables-grid" v-else>
+            <div v-for="mesa in mesas" :key="mesa.id" class="table-card" :class="mesa.status.toLowerCase()"
+                @click="abrirModalReserva(mesa)">
+                <h3>Mesa {{ mesa.numero }}</h3>
+                <span class="status-badge">{{ mesa.status }}</span>
+            </div>
+        </div>
+
+        <!-- Modal de Reserva -->
+        <div class="modal-overlay" v-if="modalAberto" @click.self="fecharModal">
+            <div class="modal animate-fade-in">
+                <h2>Reservar Mesa {{ mesaSelecionada?.numero }}</h2>
+                <form @submit.prevent="confirmarReserva">
+                    <div class="form-group">
+                        <label>Seu Nome</label>
+                        <input type="text" v-model="nomeCliente" required placeholder="Digite seu nome completo">
+                    </div>
+                    <div class="modal-actions">
+                        <button type="button" class="btn btn-secondary" @click="fecharModal">Cancelar</button>
+                        <button type="submit" class="btn btn-primary" :disabled="processando">
+                            {{ processando ? 'Reservando...' : 'Confirmar' }}
+                        </button>
+                    </div>
+                </form>
+            </div>
+        </div>
+    </div>
+
+    <script>
+        const { createApp } = Vue;
+
+        createApp({
+            data() {
+                return {
+                    mesas: [],
+                    loading: true,
+                    modalAberto: false,
+                    mesaSelecionada: null,
+                    nomeCliente: '',
+                    processando: false,
+                    polling: null
+                }
+            },
+            methods: {
+                async carregarMesas() {
+                    try {
+                        const response = await fetch('api/mesas');
+                        const data = await response.json();
+                        this.mesas = data;
+                        this.loading = false;
+                    } catch (error) {
+                        console.error('Erro ao carregar mesas:', error);
+                    }
+                },
+                abrirModalReserva(mesa) {
+                    if (mesa.status === 'RESERVADA') return;
+                    this.mesaSelecionada = mesa;
+                    this.modalAberto = true;
+                },
+                fecharModal() {
+                    this.modalAberto = false;
+                    this.mesaSelecionada = null;
+                    this.nomeCliente = '';
+                },
+                async confirmarReserva() {
+                    if (!this.nomeCliente.trim()) return;
+
+                    this.processando = true;
+                    try {
+                        const response = await fetch('api/reservas', {
+                            method: 'POST',
+                            headers: {
+                                'Content-Type': 'application/json'
+                            },
+                            body: JSON.stringify({
+                                mesaId: this.mesaSelecionada.id,
+                                nomeCliente: this.nomeCliente
+                            })
+                        });
+
+                        const result = await response.json();
+                        if (result.success) {
+                            alert('Reserva realizada com sucesso!');
+                            this.fecharModal();
+                            this.carregarMesas(); // Atualiza imediatamente
+                        } else {
+                            alert(result.message || 'Erro ao realizar reserva.');
+                        }
+                    } catch (error) {
+                        console.error('Erro:', error);
+                        alert('Erro de conexão.');
+                    } finally {
+                        this.processando = false;
+                    }
+                }
+            },
+            mounted() {
+                this.carregarMesas();
+                // Polling para atualização em tempo real (3 segundos)
+                this.polling = setInterval(this.carregarMesas, 3000);
+            },
+            beforeUnmount() {
+                clearInterval(this.polling);
+            }
+        }).mount('#app');
+    </script>
+</body>
+
+</html>
